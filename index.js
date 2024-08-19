@@ -7,9 +7,11 @@ const client = new Client({
 
 const instagramListener = require('./listener/instagram');
 const tiktokListener = require('./listener/tiktok');
+const redditListener = require('./listener/reddit');
 
 instagramListener(client);
 tiktokListener(client);
+redditListener(client);
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
