@@ -7,7 +7,7 @@ module.exports = (client) => {
 
         if (twitterRegex.test(message.content)) {
             const newLink = message.content.replace(twitterRegex, url => url.replace(/https:\/\/(?:www\.)?(?:twitter\.com|x\.com)\//, 'https://www.fxtwitter.com/'));
-            const formattedMessage = `[link](${newLink})`;
+            const formattedMessage = `[Link](${newLink})`;
 
             message.delete();
             message.channel.send(formattedMessage);

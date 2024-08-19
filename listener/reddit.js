@@ -6,7 +6,7 @@ module.exports = (client) => {
 
         if (redditRegex.test(message.content)) {
             const newLink = message.content.replace(redditRegex, 'https://www.rxddit.com/$&');
-            const formattedMessage = `[link](${newLink})`; 
+            const formattedMessage = `[Link](${newLink})`; 
             message.delete();
             message.channel.send(formattedMessage);
         }
