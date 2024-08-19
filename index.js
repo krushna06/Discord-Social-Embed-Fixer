@@ -1,20 +1,13 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
 
-
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 });
 
-const instagramListener = require('./listener/instagram');
-const tiktokListener = require('./listener/tiktok');
-const redditListener = require('./listener/reddit');
-const twitterListener = require('./listener/twitter');
+const setupListeners = require('./listener');
 
-instagramListener(client);
-tiktokListener(client);
-redditListener(client);
-twitterListener(client);
+setupListeners(client);
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
